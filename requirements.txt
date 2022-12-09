@@ -1,0 +1,4 @@
+argcomplete
+jinja2
+tabulate
+caldav
