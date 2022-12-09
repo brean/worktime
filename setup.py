@@ -10,7 +10,7 @@ def package_files(directory):
     return paths
 
 
-extra_files = package_files('mapdesc/data')
+extra_files = package_files('worktime/data')
 
 
 with open("README.md", "r") as fh:
@@ -32,7 +32,7 @@ setup(
     install_requires=[
         'argcomplete',
         'jinja2',
-        'pyocclient',
+        'caldav',
         'tabulate'
     ],
     entry_points={
