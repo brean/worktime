@@ -23,7 +23,7 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/brean/worktime",
     version="0.1",
-    license="BSD-3",
+    license="Apache-2.0",
     author="Andreas Bresser",
     packages=find_packages(),
     tests_require=[],
