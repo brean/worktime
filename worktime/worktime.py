@@ -4,7 +4,7 @@ from tabulate import tabulate
 from datetime import datetime, timedelta
 
 
-def login(server: str, secret_file: str, calendar_name: str='worktime'):
+def login(server: str, secret_file: str):
 
     username = password = None
     # Login to the server
@@ -13,7 +13,10 @@ def login(server: str, secret_file: str, calendar_name: str='worktime'):
 
     # Create an caldav client object
     client = DAVClient(server, username=username, password=password)
+    return client
 
+
+def print_work_times(client, calendar_name: str='worktime'):
     principal = client.principal()
     calendar = principal.calendar(calendar_name)
        

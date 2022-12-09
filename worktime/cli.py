@@ -8,7 +8,7 @@ import os
 import argparse
 import argcomplete
 import logging
-from .worktime import login
+from .worktime import login, print_work_times
 
 CONFIG_FORMATTER = '%(asctime)s %(name)s[%(levelname)s] %(message)s'
 logger = logging.getLogger(__name__)
@@ -33,7 +33,8 @@ def main():
     argcomplete.autocomplete(parser)
 
     args = parser.parse_args()
-    login(server=args.server, secret_file=args.secret_file)
+    client = login(server=args.server, secret_file=args.secret_file)
+    print_work_times(client=client)
 
 
 if __name__ == '__main__':
