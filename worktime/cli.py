@@ -8,7 +8,7 @@ import os
 import argparse
 import argcomplete
 import logging
-from .worktime import login, print_work_times
+from .worktime import login, print_work_time
 
 CONFIG_FORMATTER = '%(asctime)s %(name)s[%(levelname)s] %(message)s'
 logger = logging.getLogger(__name__)
@@ -30,11 +30,15 @@ def main():
     parser.add_argument(
         '-s', '--secret_file', help='Path to your secret-file.', 
         default='secrets.txt')
+    parser.add_argument(
+        '--hours', default=40, type=int,
+        help='Required hours of work per week, we assume 40, so normal 9-5'
+    )
     argcomplete.autocomplete(parser)
 
     args = parser.parse_args()
     client = login(server=args.server, secret_file=args.secret_file)
-    print_work_times(client=client)
+    print_work_time(client=client, hours=args.hours)
 
 
 if __name__ == '__main__':
