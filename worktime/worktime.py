@@ -88,7 +88,7 @@ def print_work_time(client, calendar_name: str='worktime', hours: int = 40):
     prev_week_hours = hours_num(reduce(operator.add, prev_week_times))
     prev_diff = hours - prev_week_hours
     if prev_diff > 0:
-        print(f'😭 You still owe {prev_diff} hours from last week')
+        print(f'💪 You still owe {prev_diff} hours from last week')
     elif prev_diff < 0:
         print(f'🎉 Last week you worked {-prev_diff} hours '
             'more than you should.')
@@ -104,7 +104,7 @@ def print_work_time(client, calendar_name: str='worktime', hours: int = 40):
     this_time = hours_num(reduce(operator.add, this_week_times)) - prev_diff
     this_diff = hours - this_time
     if this_diff > 0:
-        print(f'😭 You still have {this_diff} hours to go this week')
+        print(f'💪 You still have {this_diff} hours to go this week')
     elif this_diff < 0:
         print(
             f'🎉 You are already {-this_diff} hours over for the week!'
